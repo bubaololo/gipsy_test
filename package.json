@@ -1,0 +1,22 @@
+{
+  "name": "mix.loc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "laravel-mix": "^6.0.49",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.54.2",
+    "sass-loader": "^12.1.0",
+    "svg-spritemap-webpack-plugin": "^4.5.0"
+  },
+  "dependencies": {
+    "svg4everybody": "^2.1.9"
+  }
+}

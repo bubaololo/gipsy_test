@@ -1,0 +1,44 @@
+@import "normalize.css";
+
+$gray: rgb(223, 223, 223);
+
+:root {
+  --icon-color: tomato;
+}
+
+body {
+  background-color: $gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.icon__box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  background-color: rgba($color: #000000, $alpha: 0.1);
+  &:hover {
+    --icon-color: plum;
+  }
+}
+
+.social__icon {
+  width: 100px;
+}
+
+// just to test out autoprefix
+@keyframes foo {
+  to {
+    background: red;
+  }
+}
+
+#selector {
+  animation: foo 2s;
+}
