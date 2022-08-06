@@ -1,5 +1,6 @@
 let mix = require('laravel-mix');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 mix.js('src/js/app.js', 'js');
 mix.sass('src/sass/app.scss', 'css');
 
@@ -10,7 +11,7 @@ mix.webpackConfig({
     plugins: [
         // Создаем svg-спрайт с иконками
         new SVGSpritemapPlugin(
-            'src/icons/*.svg', // Путь относительно каталога с webpack.mix.js
+            'src/images/icons/*.svg', // Путь относительно каталога с webpack.mix.js
             {
                 output: {
                     filename: 'images/icons.svg', // Путь относительно каталога public/
@@ -42,6 +43,21 @@ mix.webpackConfig({
                 },
             }
         ),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'src/images', // Путь относительно каталога с webpack.mix.js
+                    to: 'images', // Путь относительно каталога public/,
+                    globOptions: {
+                        ignore: ["**/icons/**"], // Игнорируем каталог с иконками
+                    },
+                },
+                {
+                    from: 'index.html', // Путь относительно каталога с webpack.mix.js
+                    to: 'index.html', // Путь относительно каталога public/,
+                },
+            ],
+        }),
 
 
     ],
