@@ -351,7 +351,7 @@ template {
 
 .rooms-cards {
   --rooms-cards-black: #000;
-  --rooms-cards-white: #FFF;
+  --rooms-cards-white: #fff;
   --star-icon-fill: #e50c2c;
   --rooms-cards-grey: #808080;
   --rooms-cards-dark-grey: #4f4f4f;
@@ -360,7 +360,7 @@ template {
 }
 
 .content {
-  background-color: #FFF !important;
+  background-color: #fff !important;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -570,7 +570,7 @@ template {
 }
 
 .pokerdom-card .room-card__copy-area {
-  background-color: #FEF6EB;
+  background-color: #fef6eb;
 }
 
 .pokerdom-card::after {
