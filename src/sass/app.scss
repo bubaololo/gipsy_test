@@ -1,16 +1,17 @@
 @import "normalize.css";
 
 .rooms-cards {
+  --rooms-cards-black: #000;
+  --rooms-cards-white: #FFF;
   --star-icon-fill: #e50c2c;
   --rooms-cards-grey: #808080;
   --rooms-cards-dark-grey: #4f4f4f;
-  --rooms-cards-black: #000;
   --rooms-cards-border: 1px solid rgba(224, 224, 224, 1);
   --rooms-cards-border-alpha: 1px solid rgba(224, 224, 224, 0.5);
 }
 
 .content {
-  background-color: #fff !important;
+  background-color: #FFF !important;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,7 +25,7 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
-  color: #000;
+  color: var(--rooms-cards-black);
   padding: 0 15px;
   display: flex;
   gap: 15px;
@@ -41,6 +42,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+ 
+
 
   &__logo {
     position: absolute;
@@ -75,6 +78,22 @@
     }
   }
 }
+.room-card__background {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 10px;
+  top: 0;
+  width: 100%;
+  height: 122px;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-position: bottom center;
+  background-size: cover;
+  background-image: url(/images/room_bg_bright.svg);
+}
+.pokerdom-card .room-card__background{
+  background-image: url(/images/room_bg_blue.svg);
+}
 @media screen and (min-width: 640px) {
   .room-card {
     max-width: 320px;
@@ -88,7 +107,6 @@
 }
 .room-card__content-top_row-right {
   display: flex;
-  align-items: center;
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
@@ -108,14 +126,21 @@
   padding-bottom: 7px;
 }
 .room-card__content-mid_text {
-  line-height: 29px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  &_item {
+    line-height: 18px;
+  }
 }
+
 .redstar-card .room-card__button {
   margin-top: 40px;
   margin-bottom: 13px;
 }
 .room-card__content-bot_link {
   display: flex;
+  align-items: center;
   gap: 6px;
 }
 .room-card__content-bot_wrapper {
@@ -125,7 +150,7 @@
   align-items: center;
 }
 .room-card__button {
-  color: #fff;
+  color: var(--rooms-cards-white);
   font-weight: 700;
   font-size: 16px;
   line-height: 21px;
@@ -151,13 +176,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--rooms-cards-white);
   border-radius: 3px;
   outline: var(--rooms-cards-border);
   padding: 11px 13px 10px;
   margin-top: 6px;
 }
-.room-card__copy_left {
+.room-card__copy-left {
   font-weight: 700;
   font-size: 18px;
   line-height: 17px;
@@ -196,10 +221,10 @@
 .pokerdom-card::after {
   content: "";
   position: absolute;
-  width: 74px;
-  height: 80px;
+  width: 57px;
+  height: 82px;
   background-image: url(/images/pokerdom_tag.svg);
   background-repeat: no-repeat;
   top: -19px;
-  right: -21px;
+  right: -4px;
 }
