@@ -349,11 +349,13 @@ template {
   display: none;
 }
 
-:root {
-  --star-icon-fill: #E50C2C;
+.rooms-cards {
+  --star-icon-fill: #e50c2c;
   --rooms-cards-grey: #808080;
-  --rooms-cards-dark-grey: #4F4F4F;
+  --rooms-cards-dark-grey: #4f4f4f;
   --rooms-cards-black: #000;
+  --rooms-cards-border: 1px solid rgba(224, 224, 224, 1);
+  --rooms-cards-border-alpha: 1px solid rgba(224, 224, 224, 0.5);
 }
 
 .content {
@@ -391,13 +393,13 @@ template {
   flex-direction: column;
   align-items: center;
 }
-.room-card_logo {
+.room-card__logo {
   position: absolute;
   top: 12px;
   left: 50%;
   transform: translateX(-50%);
 }
-.room-card_top-img {
+.room-card__top-img {
   position: absolute;
   top: 0;
   left: 0;
@@ -405,33 +407,31 @@ template {
   height: 122px;
   z-index: 0;
 }
+.room-card__content-top_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.room-card__content-top_row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: var(--rooms-cards-border-alpha);
+}
 
 @media screen and (min-width: 640px) {
   .room-card {
     max-width: 320px;
   }
 }
-.room-card_content_top_wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.room-card_content_top_row {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(224, 224, 224, 0.5);
-}
-
-.room-card_content_top_row_left {
+.room-card__content-top_row-left {
   font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: var(--rooms-cards-grey);
 }
 
-.room-card_content_top_row_right {
+.room-card__content-top_row-right {
   display: flex;
   align-items: center;
   font-weight: 500;
@@ -440,43 +440,43 @@ template {
   gap: 4px;
 }
 
-.room-card_content_mid_wrapper {
+.room-card__content-mid_wrapper {
   width: 100%;
 }
 
-.room-card_content_mid_item {
-  border-bottom: 1px solid rgba(224, 224, 224, 0.5);
+.room-card__content-mid-item {
+  border-bottom: var(--rooms-cards-border-alpha);
   padding: 14px 0;
 }
 
-.room-card_content_mid_title {
+.room-card__content-mid_title {
   font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #808080;
+  color: var(--rooms-cards-grey);
   padding-bottom: 7px;
 }
 
-.room-card_content_mid_text {
+.room-card__content-mid_text {
   line-height: 29px;
 }
 
-.redstar-card .room-card_button {
+.redstar-card .room-card__button {
   margin-top: 40px;
   margin-bottom: 13px;
 }
 
-.room-card_content_bot_link {
+.room-card__content-bot_link {
   display: flex;
   gap: 6px;
 }
 
-.room-card_content_bot_wrapper {
+.room-card__content-bot_wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.room-card_button {
+.room-card__button {
   color: #fff;
   font-weight: 700;
   font-size: 16px;
@@ -488,11 +488,11 @@ template {
   margin-top: 9px;
 }
 
-._888-card .room-card_logo {
+._888-card .room-card__logo {
   top: 30px;
 }
 
-.room-card_content_bot_title {
+.room-card__content-bot_title {
   font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: var(--rooms-cards-grey);
   text-align: left;
@@ -500,26 +500,26 @@ template {
   width: 100%;
 }
 
-.room-card_copy_area {
+.room-card__copy-area {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
   border-radius: 3px;
-  outline: 1px solid #e0e0e0;
+  outline: var(--rooms-cards-border);
   padding: 11px 13px 10px;
   margin-top: 6px;
 }
 
-.room-card_copy_left {
+.room-card__copy_left {
   font-weight: 700;
   font-size: 18px;
   line-height: 17px;
   letter-spacing: 0.1em;
 }
 
-.room-card_copy_right {
+.room-card__copy-right {
   display: flex;
   font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   gap: 4%;
@@ -527,38 +527,26 @@ template {
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 3%;
-  color: rgb(79, 79, 79);
+  color: var(--rooms-cards-dark-grey);
 }
 
 .room-card.pokerdom-card {
   background: linear-gradient(209.14deg, #ffecde 7.32%, #ffdca8 94.85%);
 }
 
-.pokerdom-card .room-card_logo {
+.pokerdom-card .room-card__logo {
   top: 23px;
 }
 
-.pokerdom-card .room-card_content_top_row_left,
-.pokerdom-card .room-card_content_mid_title,
-.pokerdom-card .room-card_content_bot_title {
-  color: rgb(201, 128, 19);
+.pokerdom-card {
+  --rooms-cards-grey: rgb(201, 128, 19);
+  --rooms-cards-dark-grey: rgb(229, 12, 44);
+  --rooms-cards-border: 1px solid rgba(254, 214, 165, 1);
+  --rooms-cards-border-alpha: 1px solid rgba(252, 210, 151, 0.35);
 }
 
-.pokerdom-card .room-card_content_top_row_right svg {
-  fill: rgb(201, 128, 19);
-}
-
-.pokerdom-card .room-card_copy_right {
-  color: rgb(229, 12, 44);
-}
-
-.pokerdom-card .room-card_copy_right svg {
-  stroke: rgb(229, 12, 44);
-  fill: rgb(229, 12, 44);
-}
-
-.pokerdom-card .room-card_button {
-  background-color: rgb(229, 12, 44);
+.pokerdom-card .room-card__copy-area {
+  background-color: #FEF6EB;
 }
 
 .pokerdom-card::after {
