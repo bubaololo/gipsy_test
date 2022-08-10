@@ -350,47 +350,224 @@ template {
 }
 
 :root {
-  --icon-color: tomato;
+  --star-icon-fill: #E50C2C;
+  --rooms-cards-grey: #808080;
+  --rooms-cards-dark-grey: #4F4F4F;
+  --rooms-cards-black: #000;
 }
 
-body {
-  background-color: rgb(223, 223, 223);
+.content {
+  background-color: #fff !important;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  padding: 10vh 0;
 }
 
-.icon__box {
+.rooms-cards {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #000;
+  padding: 0 15px;
   display: flex;
-  justify-content: space-evenly;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.room-card {
+  width: 100%;
+  position: relative;
+  padding: 146px 24px 20px 24px;
+  background: linear-gradient(10.15deg, #ececec 22.47%, #efefef 78.8%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 300px;
-  height: 200px;
-  border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.1);
 }
-.icon__box:hover {
-  --icon-color: plum;
+.room-card_logo {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.room-card_top-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 122px;
+  z-index: 0;
 }
 
-.social__icon {
-  width: 100px;
-}
-
-@-webkit-keyframes foo {
-  to {
-    background: red;
+@media screen and (min-width: 640px) {
+  .room-card {
+    max-width: 320px;
   }
 }
-
-@keyframes foo {
-  to {
-    background: red;
-  }
+.room-card_content_top_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#selector {
-  -webkit-animation: foo 2s;
-          animation: foo 2s;
+
+.room-card_content_top_row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(224, 224, 224, 0.5);
+}
+
+.room-card_content_top_row_left {
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--rooms-cards-grey);
+}
+
+.room-card_content_top_row_right {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  gap: 4px;
+}
+
+.room-card_content_mid_wrapper {
+  width: 100%;
+}
+
+.room-card_content_mid_item {
+  border-bottom: 1px solid rgba(224, 224, 224, 0.5);
+  padding: 14px 0;
+}
+
+.room-card_content_mid_title {
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #808080;
+  padding-bottom: 7px;
+}
+
+.room-card_content_mid_text {
+  line-height: 29px;
+}
+
+.redstar-card .room-card_button {
+  margin-top: 40px;
+  margin-bottom: 13px;
+}
+
+.room-card_content_bot_link {
+  display: flex;
+  gap: 6px;
+}
+
+.room-card_content_bot_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.room-card_button {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  width: 100%;
+  border-radius: 3px;
+  background-color: var(--rooms-cards-dark-grey);
+  padding: 9px 0;
+  margin-top: 9px;
+}
+
+._888-card .room-card_logo {
+  top: 30px;
+}
+
+.room-card_content_bot_title {
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--rooms-cards-grey);
+  text-align: left;
+  margin-top: 17px;
+  width: 100%;
+}
+
+.room-card_copy_area {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 3px;
+  outline: 1px solid #e0e0e0;
+  padding: 11px 13px 10px;
+  margin-top: 6px;
+}
+
+.room-card_copy_left {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 17px;
+  letter-spacing: 0.1em;
+}
+
+.room-card_copy_right {
+  display: flex;
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  gap: 4%;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 3%;
+  color: rgb(79, 79, 79);
+}
+
+.room-card.pokerdom-card {
+  background: linear-gradient(209.14deg, #ffecde 7.32%, #ffdca8 94.85%);
+}
+
+.pokerdom-card .room-card_logo {
+  top: 23px;
+}
+
+.pokerdom-card .room-card_content_top_row_left,
+.pokerdom-card .room-card_content_mid_title,
+.pokerdom-card .room-card_content_bot_title {
+  color: rgb(201, 128, 19);
+}
+
+.pokerdom-card .room-card_content_top_row_right svg {
+  fill: rgb(201, 128, 19);
+}
+
+.pokerdom-card .room-card_copy_right {
+  color: rgb(229, 12, 44);
+}
+
+.pokerdom-card .room-card_copy_right svg {
+  stroke: rgb(229, 12, 44);
+  fill: rgb(229, 12, 44);
+}
+
+.pokerdom-card .room-card_button {
+  background-color: rgb(229, 12, 44);
+}
+
+.pokerdom-card::after {
+  content: "";
+  position: absolute;
+  width: 74px;
+  height: 80px;
+  background-image: url(/images/pokerdom_tag.svg);
+  background-repeat: no-repeat;
+  top: -19px;
+  right: -21px;
 }

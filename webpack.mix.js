@@ -4,7 +4,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 mix.js('src/js/app.js', 'js');
 mix.sass('src/sass/app.scss', 'css');
 
-
 mix.setPublicPath('dist');
 
 mix.webpackConfig({
@@ -16,9 +15,9 @@ mix.webpackConfig({
                 output: {
                     filename: 'images/icons.svg', // Путь относительно каталога public/
                     svg4everybody: false, // Отключаем плагин "SVG for Everybody"
-                    svg: {
-                        sizes: false // Удаляем инлайновые размеры svg
-                    },
+                    // svg: {
+                    //     sizes: false // Удаляем инлайновые размеры svg
+                    // },
                     chunk: {
                         keep: true, // Включаем, чтобы при сборке не было ошибок из-за отсутствия spritemap.js
                     },
